@@ -1,12 +1,10 @@
-import { Button } from "@shared/ui/shadcn/button";
+import { router } from "@app/routes/routes";
+import { RouterProvider } from "react-router";
 
 function App() {
     return (
         <>
-            <div>
-                <h1 className="text-4xl">Hi</h1>
-                <Button>Click</Button>
-            </div>
+            <RouterProvider router={router} />
         </>
     );
 }
