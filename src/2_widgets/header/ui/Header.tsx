@@ -15,20 +15,23 @@ export const Header = () => {
     ];
 
     return (
-        <header className="flex items-center justify-between py-2">
-            <div className="font-bold text-xl">Harry Potter</div>
-
-            <NavigationMenu>
-                <NavigationMenuList>
-                    {navsLink.map((item) => (
-                        <NavigationMenuItem key={item.id}>
-                            <NavigationMenuLink asChild>
-                                <NavLink to={item.path}>{item.title}</NavLink>
-                            </NavigationMenuLink>
-                        </NavigationMenuItem>
-                    ))}
-                </NavigationMenuList>
-            </NavigationMenu>
+        <header className="sticky-nav ">
+            <div className="container mx-auto flex items-center justify-between py-2">
+                <div className="font-bold text-xl">Harry Potter</div>
+                <NavigationMenu>
+                    <NavigationMenuList>
+                        {navsLink.map((item) => (
+                            <NavigationMenuItem key={item.id}>
+                                <NavigationMenuLink asChild>
+                                    <NavLink to={item.path}>
+                                        {item.title}
+                                    </NavLink>
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
+                        ))}
+                    </NavigationMenuList>
+                </NavigationMenu>
+            </div>
         </header>
     );
 };
