@@ -10,7 +10,7 @@ interface IPaginationState {
 const initialState: IPaginationState = {
     allCharacters: [],
     currentPage: 1,
-    itemsPerPage: 20,
+    itemsPerPage: 6,
 };
 
 const characterSlice = createSlice({

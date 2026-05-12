@@ -24,11 +24,13 @@ export const CharacterList = () => {
 
     return (
         <div className="flex flex-col gap-8 container mx-auto">
-            <PaginationController />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
                 {currentCharacters?.map((character) => (
                     <CharacterCard key={character.id} character={character} />
                 ))}
+            </div>
+            <div className="my-8">
+                <PaginationController />
             </div>
         </div>
     );

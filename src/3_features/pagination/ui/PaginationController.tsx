@@ -5,6 +5,7 @@ import {
     PaginationPrevious,
     PaginationLink,
     PaginationNext,
+    PaginationEllipsis,
 } from "@shared/ui/shadcn/pagination";
 import {
     goToPage,
@@ -16,11 +17,13 @@ import {
     selectCurrentPage,
     selectTotalPages,
 } from "@features/pagination/model/selectors";
+import { usePaginationRange } from "@features/pagination/hook/usePaginationRange";
 
 export const PaginationController = () => {
     const dispatch = useDispatch();
     const currentPage = useSelector(selectCurrentPage);
     const totalPages = useSelector(selectTotalPages);
+    const paginationRange = usePaginationRange(currentPage, totalPages);
     return (
         <>
             <Pagination>
@@ -30,18 +33,22 @@ export const PaginationController = () => {
                             onClick={() => dispatch(prevPage())}
                         />
                     </PaginationItem>
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                        (page) => (
-                            <PaginationItem key={page}>
+                    {paginationRange.map((item, id) => (
+                        <PaginationItem key={id}>
+                            {item === "..." ? (
+                                <PaginationEllipsis />
+                            ) : (
                                 <PaginationLink
-                                    onClick={() => dispatch(goToPage(page))}
-                                    isActive={currentPage === page}
+                                    onClick={() =>
+                                        dispatch(goToPage(item as number))
+                                    }
+                                    isActive={currentPage === item}
                                 >
-                                    {page}
+                                    {item}
                                 </PaginationLink>
-                            </PaginationItem>
-                        )
-                    )}
+                            )}
+                        </PaginationItem>
+                    ))}
                     <PaginationItem>
                         <PaginationNext onClick={() => dispatch(nextPage())} />
                     </PaginationItem>
