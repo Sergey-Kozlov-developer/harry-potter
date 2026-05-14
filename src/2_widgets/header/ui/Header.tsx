@@ -4,7 +4,9 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
 } from "@shared/ui/shadcn/navigation-menu";
+import { MobileMenu } from "@widgets/mobile-menu";
 import { NavLink } from "react-router";
+import { MenuIcon } from "lucide-react";
 
 export const Header = () => {
     const navsLink = [
@@ -21,7 +23,10 @@ export const Header = () => {
                 <NavigationMenu>
                     <NavigationMenuList>
                         {navsLink.map((item) => (
-                            <NavigationMenuItem key={item.id}>
+                            <NavigationMenuItem
+                                key={item.id}
+                                className="hidden md:flex"
+                            >
                                 <NavigationMenuLink asChild>
                                     <NavLink to={item.path}>
                                         {item.title}
@@ -31,6 +36,9 @@ export const Header = () => {
                         ))}
                     </NavigationMenuList>
                 </NavigationMenu>
+                <div className="lex items-center gap-2 sm:hidden">
+                    <MobileMenu icon={<MenuIcon />} listNav={navsLink} />
+                </div>
             </div>
         </header>
     );

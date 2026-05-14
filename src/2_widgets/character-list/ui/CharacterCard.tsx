@@ -12,6 +12,7 @@ import {
 } from "@shared/ui/shadcn/card";
 
 import noImage from "@assets/image/no-image.png";
+import { memo } from "react";
 
 interface ICharacterCardProps {
     character: ICharacter;
@@ -29,7 +30,7 @@ const characteristics = [
     { id: 9, title: "Patronus", key: "patronus" },
 ];
 
-const CharacterCard = ({ character }: ICharacterCardProps) => {
+const CharacterCard = memo(({ character }: ICharacterCardProps) => {
     const formatValue = (value: unknown): string => {
         if (value === null || value === undefined || value === "") return "-";
         if (typeof value === "boolean") return value ? "Yes" : "No";
@@ -77,6 +78,6 @@ const CharacterCard = ({ character }: ICharacterCardProps) => {
             </CardFooter>
         </Card>
     );
-};
+});
 
 export default CharacterCard;
