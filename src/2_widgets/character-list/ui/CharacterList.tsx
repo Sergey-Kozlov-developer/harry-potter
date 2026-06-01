@@ -2,6 +2,7 @@ import { useGetCharactersQuery } from "@entities/character/model/CharacterApi";
 import { PaginationController } from "@features/pagination";
 
 import { selectCurrentCharacters } from "@features/pagination/model/selectors";
+import { searchCharacters } from "@features/search/model/selectors";
 
 import CharacterCard from "@widgets/character-list/ui/CharacterCard";
 import { useSelector } from "react-redux";
@@ -9,7 +10,7 @@ import { useSelector } from "react-redux";
 export const CharacterList = () => {
     const { isLoading, isError } = useGetCharactersQuery();
     const currentCharacters = useSelector(selectCurrentCharacters);
-    const search = useSelector((state) => state.search.query);
+    const search = useSelector(searchCharacters);
 
     const handleSearch = currentCharacters.filter((item) => {
         const searchItem = item.name
