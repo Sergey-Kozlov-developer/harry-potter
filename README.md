@@ -2,7 +2,7 @@
 
 Обновленный **Pet-проект**, персонажи из Harry Potter
 
-[//]: # "- 🌍 Сайт доступен по [ссылке](https://sergey-kozlov-developer-frickandmorty-8138.twc1.net/)"
+- 🌍 Сайт доступен по [ссылке](https://sergey-kozlov-developer-harry-potter-551d.twc1.net/)"
 
 - 🌍 При создании UI вдохновлялся сайтом [API](https://hp-api.onrender.com/)
 
