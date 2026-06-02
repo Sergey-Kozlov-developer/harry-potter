@@ -1,6 +1,5 @@
 import type { ICharacter } from "@entities/character/model/types";
 import { Badge } from "@shared/ui/shadcn/badge";
-import { Button } from "@shared/ui/shadcn/button";
 import {
     Card,
     CardAction,
@@ -13,6 +12,7 @@ import {
 
 import noImage from "@assets/image/no-image.png";
 import { memo } from "react";
+import { DetailedInfo } from "@features/detailed-info";
 
 interface ICharacterCardProps {
     character: ICharacter;
@@ -21,13 +21,6 @@ interface ICharacterCardProps {
 const characteristics = [
     { id: 1, title: "Date of Birth", key: "dateOfBirth" },
     { id: 2, title: "Species", key: "species" },
-    { id: 3, title: "Gender", key: "gender" },
-    { id: 4, title: "Year of Birth", key: "yearOfBirth" },
-    { id: 5, title: "Wizard", key: "wizard" },
-    { id: 6, title: "Ancestry", key: "ancestry" },
-    { id: 7, title: "Eye colour", key: "eyeColour" },
-    { id: 8, title: "Hair colour", key: "hairColour" },
-    { id: 9, title: "Patronus", key: "patronus" },
 ];
 
 const CharacterCard = memo(({ character }: ICharacterCardProps) => {
@@ -74,7 +67,7 @@ const CharacterCard = memo(({ character }: ICharacterCardProps) => {
                 })}
             </CardContent>
             <CardFooter>
-                <Button className="w-full">View Event</Button>
+                <DetailedInfo character={character} />
             </CardFooter>
         </Card>
     );
