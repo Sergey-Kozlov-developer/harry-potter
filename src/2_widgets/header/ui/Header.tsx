@@ -8,6 +8,7 @@ import { MobileMenu } from "@widgets/mobile-menu";
 import { NavLink } from "react-router";
 import { MenuIcon } from "lucide-react";
 import { Search } from "@features/search";
+import { SelectHouse } from "@features/select-house";
 
 export const Header = () => {
     const navsLink = [
@@ -22,6 +23,7 @@ export const Header = () => {
             <div className="container mx-auto flex items-center justify-between py-2">
                 <div className="font-bold text-xl">Harry Potter</div>
                 <Search />
+                <SelectHouse />
                 <NavigationMenu className="flex-none">
                     <NavigationMenuList>
                         {navsLink.map((item) => (
