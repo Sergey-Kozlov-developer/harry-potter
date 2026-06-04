@@ -21,6 +21,13 @@ export interface ICharacter {
     hogwartsStudent: boolean | null;
 }
 
+export interface ISpell {
+    id: string;
+    name: string;
+    description: string;
+}
+
 export type TCharacterResponse = ICharacter[];
 export type TCharacterByHouseResponse = ICharacter[];
 export type TStaffResponse = ICharacter[];
+export type TSpellResponse = ISpell[];
