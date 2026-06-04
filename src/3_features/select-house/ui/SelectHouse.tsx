@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { selectHouse } from "@features/search/model/selectors";
 import { useDispatch } from "react-redux";
 import { setHouse } from "@features/search/model/searchSlice";
+import { useCallback } from "react";
 
 const HOUSES = [
     { id: 1, value: "gryffindor", label: "Gryffindor" },
@@ -22,13 +23,16 @@ const HOUSES = [
 export const SelectHouse = () => {
     const dispatch = useDispatch();
     const house = useSelector(selectHouse);
-    console.log(house);
+
+    const handleHouseChange = useCallback(
+        (value: string) => {
+            dispatch(setHouse(value));
+        },
+        [dispatch]
+    );
 
     return (
-        <Select
-            value={house}
-            onValueChange={(value) => dispatch(setHouse(value))}
-        >
+        <Select value={house} onValueChange={handleHouseChange}>
             <SelectTrigger className="w-full max-w-48">
                 <SelectValue placeholder="Select a house" />
             </SelectTrigger>
