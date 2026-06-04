@@ -23,3 +23,4 @@ export interface ICharacter {
 
 export type TCharacterResponse = ICharacter[];
 export type TCharacterByHouseResponse = ICharacter[];
+export type TStaffResponse = ICharacter[];

@@ -3,6 +3,7 @@ import type {
     ICharacter,
     TCharacterByHouseResponse,
     TCharacterResponse,
+    TStaffResponse,
 } from "@entities/character/model/types";
 import { baseApi } from "@shared/api/baseApi";
 
@@ -21,6 +22,9 @@ export const characterApi = baseApi.injectEndpoints({
         getCharactersByHouse: build.query<TCharacterByHouseResponse, string>({
             query: (house) => `/characters/house/${house}`,
         }),
+        getStaff: build.query<TStaffResponse, void>({
+            query: () => "/characters/staff",
+        }),
     }),
 });
 
@@ -28,4 +32,5 @@ export const {
     useGetCharactersQuery,
     useGetCharacterByIdQuery,
     useGetCharactersByHouseQuery,
+    useGetStaffQuery,
 } = characterApi;
