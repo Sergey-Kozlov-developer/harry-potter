@@ -13,8 +13,8 @@ import { SelectHouse } from "@features/select-house";
 export const Header = () => {
     const navsLink = [
         { id: 1, title: "Characters", path: "/" },
-        { id: 2, title: "Students", path: "/students" },
-        { id: 3, title: "Staffs", path: "/staffs" },
+        // { id: 2, title: "Students", path: "/students" },
+        // { id: 3, title: "Staffs", path: "/staffs" },
         { id: 4, title: "Spells", path: "/spells" },
     ];
 
